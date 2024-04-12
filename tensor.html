@@ -60,17 +60,31 @@
         }
 
         async function predictValue() {
-            const inputValue = Number(document.getElementById('input_value').value);
+            const inputValue = document.getElementById('input_value').value.trim();
+
+            // Verificar si no se ha ingresado ningún valor
+            if (inputValue === '') {
+                alert('Por favor, ingrese un valor antes de hacer la predicción.');
+                return; // Detener la ejecución si no se ha ingresado ningún valor
+            }
+
+            const numericValue = Number(inputValue);
+
+            // Verificar si el valor ingresado es un número válido
+            if (isNaN(numericValue)) {
+                alert('Por favor, ingrese un valor numérico válido.');
+                return; // Detener la ejecución si el valor ingresado no es numérico
+            }
 
             if (model) {
-                const input = tf.tensor2d([[inputValue]], [1, 1]);
+                const input = tf.tensor2d([[numericValue]], [1, 1]);
                 const prediction = model.predict(input);
                 const predictedValue = prediction.dataSync()[0];
 
                 const predictionResult = document.getElementById('prediction_result');
-                predictionResult.innerText = `For x = ${inputValue}, predicted y = ${predictedValue}`;
+                predictionResult.innerText = `Para x = ${numericValue}, y predicho = ${predictedValue}`;
             } else {
-                alert('Please train the model first!');
+                alert('¡Por favor, entrene el modelo primero!');
             }
         }
     </script>
