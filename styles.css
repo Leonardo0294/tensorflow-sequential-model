@@ -1,43 +1,52 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
     margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: #f8f8f8;
 }
 
 .container {
-    width: 400px;
-    padding: 20px;
     background-color: #fff;
+    padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    text-align: center; /* Centra el contenido dentro del contenedor */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
 }
 
 h1 {
-    color: #007bff;
+    font-size: 24px;
     margin-bottom: 20px;
 }
 
-.formula, .buttons, .prediction {
+.formula {
     margin-bottom: 20px;
 }
 
-input[type="number"], button {
-    padding: 10px;
+.buttons {
+    margin-bottom: 20px;
+}
+
+input[type="number"] {
+    width: 120px;
+    padding: 8px;
     font-size: 16px;
-    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
     background-color: #007bff;
     color: #fff;
     border: none;
     border-radius: 4px;
-    cursor: pointer;
 }
 
 button:disabled {
@@ -45,9 +54,11 @@ button:disabled {
     cursor: not-allowed;
 }
 
-#training_status, #prediction_result {
-    padding: 10px;
-    background-color: #f8f9fa;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
+#training_status {
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+#prediction_result {
+    font-weight: bold;
 }
